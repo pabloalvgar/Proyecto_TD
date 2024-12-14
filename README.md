@@ -39,38 +39,6 @@ El objetivo principal es resolver un problema de **regresión**, prediciendo la 
    - Otro modelo clásico usando Scikit-learn (K-NN, Random Forest, SVM, etc).
 4. Comparación con el **fine-tuning de un modelo preentrenado** (Hugging Face Transformers) adaptado a la tarea de regresión.
 
----
-
-## **Estructura del Proyecto**
-
-El repositorio está organizado de la siguiente manera:
-
-```
-project_recipes_nlp/
-|
-├── data/                           # Dataset proporcionado
-|   └── full_format_recipes.json
-|
-├── notebooks/                      # Notebooks con el desarrollo del proyecto
-|   ├── 01_data_analysis.ipynb      # Análisis y visualización inicial
-|   ├── 02_preprocessing.ipynb      # Preprocesamiento de textos
-|   ├── 03_vectorization.ipynb      # Representación TF-IDF, Word2Vec, Transformers
-|   ├── 04_model_training.ipynb     # Entrenamiento de modelos
-|   └── 05_fine_tuning.ipynb        # Fine-tuning de transformers
-|
-├── scripts/                        # Scripts de código fuente
-|   ├── preprocess.py               # Pipeline de preprocesado de texto
-|   ├── train_model.py              # Entrenamiento de modelos
-|   └── evaluate_model.py           # Evaluación y métricas
-|
-├── models/                         # Modelos entrenados
-├── results/                        # Resultados (métricas, gráficos, etc.)
-├── requirements.txt                # Librerías necesarias
-└── README.md                       # Documentación del proyecto
-```
-
----
-
 ## **Metodología**
 
 ### **1. Análisis Exploratorio de Datos (EDA)**
