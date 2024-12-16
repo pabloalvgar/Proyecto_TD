@@ -168,10 +168,6 @@ A continuación se presenta una comparación visual de ambos modelos, K-NN y la 
 
 ![KNN vs NN](KNN_NN.png)
 
-### Conclusión
-
-En resumen, ambos modelos de regresión, el K-NN y la Red Neuronal, demostraron ser efectivos para predecir los ratings de las recetas. Sin embargo, el K-NN presentó un rendimiento superior en este caso, con un MSE y MAE más bajos que la red neuronal. A pesar de que las redes neuronales tienen la capacidad de aprender relaciones no lineales más complejas, el modelo K-NN resultó ser más preciso en este contexto particular. Esto sugiere que, aunque las redes neuronales pueden ser útiles para patrones más complejos, el K-NN fue más adecuado para este conjunto de datos específico.
-
 Comparación entre KNN, NN y Fine-Tuning BERT
 1. Introducción
 En esta sección se presenta la comparación del desempeño de tres métodos distintos para la predicción de ratings:
@@ -211,11 +207,11 @@ El modelo K-Nearest Neighbors (K-NN) obtuvo un MSE de 1.7182 y un MAE de 0.9009.
 
 b) Red Neuronal (NN)
 MSE (1.7182) y MAE (0.9009):
-La Red Neuronal (NN) obtuvo los mismos resultados que el modelo K-NN en cuanto a MSE y MAE. Esto sugiere que, en este caso específico, la red neuronal no fue capaz de superar el rendimiento de K-NN, a pesar de su capacidad para aprender relaciones no lineales más complejas. Los posibles motivos incluyen un sobreajuste o una configuración de hiperparámetros que no fue óptima.
+La Red Neuronal (NN) obtuvo mejroes resultados que el modelo K-NN en cuanto a MSE y MAE. Esto sugiere que, en este caso específico, la red neuronal fue capaz de superar el rendimiento de K-NN.
 
 c) Fine-Tuning de BERT
 MSE (1.77581) y MAE (0.9216):
-El modelo de Fine-Tuning de BERT obtuvo un MSE de 1.77581 y un MAE de 0.9216. Aunque BERT puede capturar representaciones complejas a través de sus embeddings preentrenados, su rendimiento fue peor que el de los modelos K-NN y Red Neuronal en este caso específico. Esto sugiere que el ajuste fino de BERT no aportó mejoras significativas y que los modelos más simples fueron más adecuados para este conjunto de datos.
+El modelo de Fine-Tuning de BERT obtuvo un MSE de 1.77581 y un MAE de 0.9216. Aunque BERT puede capturar representaciones complejas a través de sus embeddings preentrenados, su rendimiento fue similar a la Red Neuronal en este caso específico. Esto sugiere que el ajuste fino de BERT no aportó mejoras significativas aunque si mejoró el KNN.
 
 ![Fine-Tuning BERT :Fine-Tuning BERT](Finetuning.png)
 
