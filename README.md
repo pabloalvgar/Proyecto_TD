@@ -110,7 +110,7 @@ Por ejemplo, en la matriz generada, si el valor de un término para una receta e
 
 Word2Vec es un modelo de aprendizaje no supervisado que transforma las palabras en vectores de características. Para este proyecto, se utilizó Word2Vec para generar representaciones vectoriales de las recetas basadas en las descripciones. Posteriormente, estos vectores fueron visualizados en un gráfico de dispersión, lo que permite observar cómo se agrupan las recetas en función de sus similitudes semánticas.
 
-![Representación de recetas con Word2Vec (PCA)](Word2Vec.png)
+![Representación de recetas con Word2Vec (PCA)](Word2Vec2.png)
 
 Como se observa en la gráfica, las recetas que son semánticamente similares tienden a agruparse en el mismo vecindario del espacio vectorial, lo que puede ser útil para predecir su puntuación basada en características textuales.
 
@@ -166,7 +166,7 @@ Para la red neuronal, el MSE fue 1.7182 y el MAE fue 0.9009. Esto indica que la 
 
 A continuación se presenta una comparación visual de ambos modelos, K-NN y la Red Neuronal, para ilustrar cómo se comportan en términos de rendimiento:
 
-![KNN vs NN](KNN_vs_NN.png)
+![KNN vs NN](KNN_NN.png)
 
 ### Conclusión
 
@@ -217,10 +217,13 @@ c) Fine-Tuning de BERT
 MSE (1.77581) y MAE (0.9216):
 El modelo de Fine-Tuning de BERT obtuvo un MSE de 1.77581 y un MAE de 0.9216. Aunque BERT puede capturar representaciones complejas a través de sus embeddings preentrenados, su rendimiento fue peor que el de los modelos K-NN y Red Neuronal en este caso específico. Esto sugiere que el ajuste fino de BERT no aportó mejoras significativas y que los modelos más simples fueron más adecuados para este conjunto de datos.
 
+![Fine-Tuning BERT :Fine-Tuning BERT](Finetuning.png)
+
+
 Visualización Comparativa de los Modelos
 Para analizar visualmente el rendimiento de los modelos K-NN, Red Neuronal (NN) y Fine-Tuning BERT, se presenta un gráfico que compara las predicciones de cada modelo frente a los valores reales de calificación. En la gráfica, la línea diagonal representa una predicción perfecta, donde las predicciones coinciden exactamente con los valores verdaderos.
 
-![Comparación de Modelos: KNN vs NN vs Fine-Tuning BERT](Fine_tuning.png)
+![Comparación de Modelos: KNN vs NN vs Fine-Tuning BERT](KNN_NN_Fine.png)
 
 La dispersión de los puntos alrededor de esta línea proporciona una idea de la precisión de cada modelo. Un menor desplazamiento respecto a la línea sugiere un mejor desempeño.
 
