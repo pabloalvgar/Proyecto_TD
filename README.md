@@ -243,33 +243,35 @@ Se utilizaron tres modelos preentrenados para resumir las instrucciones:
 
 Los modelos fueron aplicados a las instrucciones de una receta de ejemplo, y los resúmenes generados fueron analizados para evaluar su calidad y coherencia. Cada modelo fue configurado para generar un resumen de entre 50 y 150 palabras, con base en la longitud del texto original.
 
-### Resultados
+## Resultados
 
 A continuación se presentan los resúmenes generados por cada modelo para una receta de ejemplo:
 
-| **Índice** | **Texto Original** | **Resumen BART** | **Resumen T5** | **Resumen PEGASUS** |
-|------------|--------------------|------------------|----------------|---------------------|
-| 0          | Combine first 9 ingredients in heavy medium sa... | Pork, eggs, flour and Port and puree. Combine ... | Heat oil in heavy small skillet over medium-hi... | Adapted from "The Art of French Cooking" by Je... |
+| **Índice** | **Texto Original**                                                                 | **Resumen BART**                                                         | **Resumen T5**                                                           | **Resumen PEGASUS**                                                    |
+|------------|------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| 0          | Combine first 9 ingredients in heavy medium sauce pan and cook over medium heat for 5 minutes. | Pork, eggs, flour and Port and puree. Combine ...                         | Heat oil in heavy small skillet over medium-hi...                         | Adapted from "The Art of French Cooking" by Je...                         |
+| 1          | Mix basil, mayonnaise and butter in processor until smooth.                       | Bacon, tomato, avocado, bacon, lettuce and mayo...                         | Mix basil, mayonnaise and butter in processor ...                         | Bacon, tomato, onion and lettuce sandwiches wi...                        |
+| 2          | Stir together soy sauce, sugar, sesame oil, white vinegar, and garlic in a small bowl. | Stir together soy sauce, sugar, sesame oil, wh...                         | Stir together soy sauce, sugar, sesame oil, wh...                         | Season steak with salt and pepper to taste, then cook.                   |
 
-### Análisis de Resultados
+## Análisis de Resultados
 
-**BART**:
-   - El modelo BART proporcionó un resumen que resume correctamente algunas partes del texto original, pero tiene problemas con la estructura y coherencia.
-   - El orden y la secuencia de las instrucciones no son completamente lógicos, ya que se saltan pasos y mezcla secciones que no siguen una secuencia clara.
-   - El resumen parece más un conjunto de fragmentos de la receta sin un flujo cohesivo, lo que puede dificultar la comprensión para el usuario.
+### **BART**:
+- El modelo BART generó un resumen adecuado en cuanto a los ingredientes, pero presenta limitaciones en los pasos de la receta, como la falta de coherencia en el orden de los mismos. El resumen de la primera receta, por ejemplo, se centra demasiado en los ingredientes sin detallar el proceso de cocina.
+- A pesar de esto, BART es útil cuando se busca generar resúmenes rápidos que capten los elementos principales, aunque puede necesitar ajustes para mejorar la secuencia y coherencia.
 
-**T5**:
-   - El modelo T5 se enfocó en acciones específicas, como cocinar las chalotas y pre-calentar el horno, pero omitió pasos importantes, como la mezcla de los ingredientes o el horneado del terrine.
-   - A pesar de capturar algunas acciones clave, el resumen de T5 pierde cohesión general, ya que se limita a describir pasos aislados sin considerar el proceso completo de la receta.
+### **T5**:
+- T5 capturó mejor la acción en el proceso de la receta en comparación con BART. En los ejemplos mostrados, especialmente en el segundo, el modelo identifica correctamente los pasos claves, como el proceso de mezcla, aunque sigue careciendo de cobertura completa de todos los pasos.
+- T5 se mostró más eficaz que BART en términos de coherencia, pero aún tiene margen de mejora en la representación completa del procedimiento.
 
-**PEGASUS**:
-   - El modelo PEGASUS tuvo el peor desempeño en este caso. La salida generada parece un fragmento de texto no relacionado con la receta ("The Art of French Cooking"), lo cual es un error claro.
-   - Este error puede estar relacionado con la naturaleza del modelo PEGASUS-XSUM, que fue diseñado para generar resúmenes extremadamente concisos y, en algunos casos, prioriza el texto introductorio irrelevante cuando el input no está bien segmentado.
+### **PEGASUS**:
+- PEGASUS presentó los peores resultados. En el primer ejemplo, el resumen hace referencia a un texto que no tiene relación con la receta original ("Adapted from 'The Art of French Cooking'..."), lo que indica que el modelo no manejó correctamente la entrada.
+- En el segundo caso, PEGASUS presentó una síntesis confusa que parece referirse a una receta diferente. Esto sugiere que PEGASUS-XSUM prioriza resúmenes más concisos pero no siempre adecuados para recetas que requieren más contexto.
 
-### Conclusión
+## Conclusión
 
-- **BART** y **T5** generaron resúmenes útiles, aunque ambos tienen limitaciones importantes en cuanto a la coherencia y cobertura de los pasos completos de la receta. Estos modelos pueden funcionar bien si el objetivo es generar resúmenes que cubran los aspectos más importantes de manera breve, pero pueden requerir ajustes en la segmentación y estructura del texto para mejorar los resultados.
+- **BART** y **T5** generaron resúmenes útiles, pero ambos modelos tienen limitaciones en cuanto a la coherencia y cobertura de los pasos completos de la receta. Estos modelos pueden ser adecuados para generar resúmenes rápidos y breves, pero pueden necesitar ajustes para capturar todo el proceso de la receta de manera efectiva.
   
-- **PEGASUS**, por otro lado, falló por completo en este caso, destacando la importancia de elegir el modelo adecuado dependiendo del tipo de texto de entrada. PEGASUS-XSUM tiende a priorizar resúmenes muy concisos y puede generar resultados irrelevantes si el texto de entrada no está bien estructurado.
+- **PEGASUS**, por otro lado, mostró un desempeño pobre, lo que subraya la importancia de elegir el modelo adecuado dependiendo del tipo de texto. PEGASUS-XSUM es excelente para resúmenes muy breves, pero en este caso no logró capturar el contexto adecuado.
+
 
 
