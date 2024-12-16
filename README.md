@@ -227,14 +227,6 @@ Para analizar visualmente el rendimiento de los modelos K-NN, Red Neuronal (NN) 
 
 La dispersión de los puntos alrededor de esta línea proporciona una idea de la precisión de cada modelo. Un menor desplazamiento respecto a la línea sugiere un mejor desempeño.
 
-
-
-
-Conclusión: El Fine-Tuning de BERT no proporcionó mejoras significativas en este caso específico, lo que sugiere que el problema puede no requerir un modelo tan complejo.
-
-
-
-
 ## Extensión: Uso de un Summarizer Preentrenado
 
 Para mejorar la experiencia de usuario al seguir las recetas, se implementó un **summarizer preentrenado** utilizando modelos de la librería **Hugging Face**. El objetivo es generar resúmenes más breves y fáciles de leer de las instrucciones de las recetas, que son frecuentemente largas y contienen pasos repetitivos.
