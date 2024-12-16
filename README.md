@@ -110,7 +110,7 @@ Por ejemplo, en la matriz generada, si el valor de un término para una receta e
 
 Word2Vec es un modelo de aprendizaje no supervisado que transforma las palabras en vectores de características. Para este proyecto, se utilizó Word2Vec para generar representaciones vectoriales de las recetas basadas en las descripciones. Posteriormente, estos vectores fueron visualizados en un gráfico de dispersión, lo que permite observar cómo se agrupan las recetas en función de sus similitudes semánticas.
 
-![Representación de recetas con Word2Vec (PCA)](image_Word2Vec.png)
+![Representación de recetas con Word2Vec (PCA)](Word2Vec.png)
 
 Como se observa en la gráfica, las recetas que son semánticamente similares tienden a agruparse en el mismo vecindario del espacio vectorial, lo que puede ser útil para predecir su puntuación basada en características textuales.
 
@@ -160,6 +160,11 @@ Ambos modelos fueron evaluados utilizando el **Error Cuadrático Medio (MSE)**. 
   
 - Para la **red neuronal**, el **MSE** fue **1.9879798889160156**, que es superior al del modelo K-NN. Esto indica que, a pesar de la capacidad de la red neuronal para modelar relaciones no lineales más complejas, en este caso, el modelo K-NN resultó ser más preciso en la predicción de los ratings.
 
+### Comparación Visual de Modelos
+
+A continuación se presenta una comparación visual de ambos modelos, K-NN y la Red Neuronal, para ilustrar cómo se comportan en términos de rendimiento:
+
+![KNN vs NN](KNN_vs_NN.png)
 
 ### Conclusión
 
