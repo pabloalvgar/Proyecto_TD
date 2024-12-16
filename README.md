@@ -173,30 +173,6 @@ En resumen, ambos modelos de regresión, el **K-NN** y la **Red Neuronal**, demo
 6- EXTENSION 
 ## Extensión: Uso de un Summarizer Preentrenado
 
-Como parte de la extensión del proyecto, se utilizó un **summarizer preentrenado** para generar resúmenes de las instrucciones de las recetas. Este paso es útil ya que las instrucciones pueden contener textos largos y repetitivos, y al utilizar un modelo de resumen, podemos obtener una versión más concisa de las mismas.
-
-### Modelos Utilizados
-
-Se emplearon tres modelos preentrenados de **Hugging Face Transformers** para realizar el resumen de las instrucciones. Los modelos utilizados fueron:
-
-1. **BART (facebook/bart-large-cnn)**: Un modelo basado en la arquitectura de BART, eficaz para tareas de resumen.
-2. **T5 (t5-small)**: Un modelo basado en la arquitectura de T5, conocido por su versatilidad en tareas de NLP.
-3. **PEGASUS (google/pegasus-xsum)**: Un modelo especialmente entrenado para resúmenes extractivos y abstracción de texto.
-
-### Funcionamiento
-
-Para cada receta en el conjunto de datos, se procesaron las instrucciones de la receta (almacenadas en la variable `directions`) para generar un resumen utilizando cada uno de los tres modelos. La longitud del resumen se ajustó en función de la longitud del texto original, asegurando que el resumen tuviera entre 50 y 150 palabras.
-
-### Resultados
-
-A continuación se muestran los resúmenes generados por cada uno de los modelos para las instrucciones de una receta de ejemplo:
-
-| **Índice** | **Texto Original** | **Resumen BART** | **Resumen T5** | **Resumen PEGASUS** |
-|------------|--------------------|------------------|----------------|---------------------|
-| 0          | Combine first 9 ingredients in heavy medium sa... | Pork, eggs, flour and Port and puree. Combine ... | Heat oil in heavy small skillet over medium-hi... | Adapted from "The Art of French Cooking" by Je... |
-
-## Extensión: Uso de un Summarizer Preentrenado
-
 Para mejorar la experiencia de usuario al seguir las recetas, se implementó un **summarizer preentrenado** utilizando modelos de la librería **Hugging Face**. El objetivo es generar resúmenes más breves y fáciles de leer de las instrucciones de las recetas, que son frecuentemente largas y contienen pasos repetitivos.
 
 ### Modelos Utilizados
@@ -239,11 +215,6 @@ A continuación se presentan los resúmenes generados por cada modelo para una r
 - **BART** y **T5** generaron resúmenes útiles, aunque ambos tienen limitaciones importantes en cuanto a la coherencia y cobertura de los pasos completos de la receta. Estos modelos pueden funcionar bien si el objetivo es generar resúmenes que cubran los aspectos más importantes de manera breve, pero pueden requerir ajustes en la segmentación y estructura del texto para mejorar los resultados.
   
 - **PEGASUS**, por otro lado, falló por completo en este caso, destacando la importancia de elegir el modelo adecuado dependiendo del tipo de texto de entrada. PEGASUS-XSUM tiende a priorizar resúmenes muy concisos y puede generar resultados irrelevantes si el texto de entrada no está bien estructurado.
-
-
-
-
-
 
 
 ## Estructura del Repositorio
