@@ -175,7 +175,6 @@ En resumen, ambos modelos de regresión, el **K-NN** y la **Red Neuronal**, demo
    - ULTIMO PUNTO
 
 
-6- EXTENSION 
 ## Extensión: Uso de un Summarizer Preentrenado
 
 Para mejorar la experiencia de usuario al seguir las recetas, se implementó un **summarizer preentrenado** utilizando modelos de la librería **Hugging Face**. El objetivo es generar resúmenes más breves y fáciles de leer de las instrucciones de las recetas, que son frecuentemente largas y contienen pasos repetitivos.
@@ -221,8 +220,4 @@ A continuación se presentan los resúmenes generados por cada modelo para una r
   
 - **PEGASUS**, por otro lado, falló por completo en este caso, destacando la importancia de elegir el modelo adecuado dependiendo del tipo de texto de entrada. PEGASUS-XSUM tiende a priorizar resúmenes muy concisos y puede generar resultados irrelevantes si el texto de entrada no está bien estructurado.
 
-
-## Estructura del Repositorio
-
-El repositorio está organizado de la siguiente manera:
 
