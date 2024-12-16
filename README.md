@@ -72,7 +72,7 @@ Las categorías con mayor rating promedio indican los tipos de recetas que gener
 
 A continuación, se muestra un gráfico de barras que visualiza las categorías con los ratings más altos. Este gráfico nos permite identificar qué categorías de recetas suelen obtener las mejores puntuaciones.
 
-![Top 15 Categorías con Mayor Rating Promedio](ruta/a/la/imagen.png)
+![Top 15 Categorías con Mayor Rating Promedio](Analisis_Apartado1.png)
 
 ### Análisis de los Resultados
 
