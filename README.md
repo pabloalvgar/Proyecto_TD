@@ -137,28 +137,30 @@ Los **embeddings** de BERT son vectores de características de alta dimensión q
 
 En esta sección, entrenamos y evaluamos dos modelos de regresión utilizando dos técnicas diferentes de aprendizaje automático:
 
-1. **Regresor K-NN (K-Nearest Neighbors)** implementado con **Scikit-learn**.
-2. **Red Neuronal** utilizando **PyTorch**.
+4. Entrenamiento y Evaluación de Modelos de Regresión
+En esta sección, entrenamos y evaluamos dos modelos de regresión utilizando dos técnicas diferentes de aprendizaje automático:
 
-Para entrenar los modelos, los datos fueron divididos en dos conjuntos: **entrenamiento** y **prueba**. Se asignó el 80% de los datos para el entrenamiento y el 20% restante para la evaluación del rendimiento de los modelos. Además, se estandarizaron las características utilizando el **StandardScaler**. La estandarización es crucial porque algunos modelos, como K-NN, dependen de la distancia entre las observaciones y se benefician de que las características tengan la misma escala, lo que evita que una variable domine a otras debido a diferencias en su magnitud.
+Regresor K-NN (K-Nearest Neighbors) implementado con Scikit-learn.
+Red Neuronal utilizando PyTorch.
 
-### Regresor K-NN (K-Nearest Neighbors)
+Para entrenar los modelos, los datos fueron divididos en dos conjuntos: entrenamiento y prueba. Se asignó el 80% de los datos para el entrenamiento y el 20% restante para la evaluación del rendimiento de los modelos. Además, se estandarizaron las características utilizando el StandardScaler. La estandarización es crucial porque algunos modelos, como K-NN, dependen de la distancia entre las observaciones y se benefician de que las características tengan la misma escala, lo que evita que una variable domine a otras debido a diferencias en su magnitud.
 
-El primer modelo que implementamos es el **K-Nearest Neighbors (K-NN)**. Este algoritmo realiza predicciones basándose en los **K vecinos más cercanos** en el espacio de características. Para este caso, se utilizó un valor de **5 vecinos**. El modelo K-NN fue entrenado con los datos de entrenamiento y luego evaluado con los datos de prueba utilizando el **Error Cuadrático Medio (MSE)**, que es una métrica estándar para evaluar modelos de regresión. El **MSE** calculado para el modelo K-NN fue **1.60546875**, lo que indica que el modelo es relativamente preciso, pero aún tiene margen de mejora.
+Regresor K-NN (K-Nearest Neighbors)
+El primer modelo que implementamos es el K-Nearest Neighbors (K-NN). Este algoritmo realiza predicciones basándose en los K vecinos más cercanos en el espacio de características. Para este caso, se utilizó un valor de 10 vecinos. El modelo K-NN fue entrenado con los datos de entrenamiento y luego evaluado con los datos de prueba utilizando el Error Cuadrático Medio (MSE), que es una métrica estándar para evaluar modelos de regresión. El MSE calculado para el modelo K-NN fue 1.904975, lo que indica que el modelo es relativamente preciso, pero aún tiene margen de mejora. Además, se calculó el Error Absoluto Medio (MAE), que resultó ser 0.9225.
 
-### Red Neuronal con PyTorch
+Red Neuronal con PyTorch
+El segundo modelo que implementamos es una Red Neuronal utilizando PyTorch. Esta red neuronal consta de tres capas: una capa de entrada, una capa oculta y una capa de salida. La función de activación utilizada en las capas ocultas es ReLU (Rectified Linear Unit), que permite a la red aprender relaciones no lineales entre las características.
 
-El segundo modelo que implementamos es una **Red Neuronal** utilizando **PyTorch**. Esta red neuronal consta de tres capas: una capa de entrada, una capa oculta y una capa de salida. La función de activación utilizada en las capas ocultas es **ReLU** (Rectified Linear Unit), que permite a la red aprender relaciones no lineales entre las características. 
+El entrenamiento de la red se llevó a cabo utilizando la función de pérdida MSE y el optimizador Adam, que ajusta los pesos de la red para minimizar el error entre las predicciones y los valores reales. El modelo fue entrenado durante 100 épocas y luego evaluado en el conjunto de prueba utilizando el MSE. Además, se calculó el MAE para la red neuronal.
 
-El entrenamiento de la red se llevó a cabo utilizando la **función de pérdida MSE** y el optimizador **Adam**, que ajusta los pesos de la red para minimizar el error entre las predicciones y los valores reales. El modelo fue entrenado durante 100 épocas y luego evaluado en el conjunto de prueba utilizando el **MSE**. 
+4.4. Evaluación de los Modelos
+Ambos modelos fueron evaluados utilizando el Error Cuadrático Medio (MSE). Esta métrica calcula la media de los cuadrados de las diferencias entre los valores reales y las predicciones del modelo. Un MSE más bajo indica que el modelo tiene una mejor capacidad de predicción.
 
-### 4.4. Evaluación de los Modelos
+Ambos modelos fueron evaluados utilizando dos métricas: Error Cuadrático Medio (MSE) y Error Absoluto Medio (MAE).
 
-Ambos modelos fueron evaluados utilizando el **Error Cuadrático Medio (MSE)**. Esta métrica calcula la media de los cuadrados de las diferencias entre los valores reales y las predicciones del modelo. Un MSE más bajo indica que el modelo tiene una mejor capacidad de predicción.
+Para el modelo K-NN, el MSE calculado fue 1.904975 y el MAE fue 0.9225. Este valor sugiere que el modelo tiene un rendimiento razonable, aunque no es perfecto. K-NN es particularmente útil cuando las relaciones entre las variables son simples y los datos no contienen muchas variaciones complejas.
 
-- Para el **modelo K-NN**, el **MSE** calculado fue **1.60546875**. Este valor sugiere que el modelo tiene un rendimiento razonable, aunque no es perfecto. El K-NN es particularmente útil cuando las relaciones entre las variables son simples y los datos no contienen muchas variaciones complejas.
-  
-- Para la **red neuronal**, el **MSE** fue **1.9879798889160156**, que es superior al del modelo K-NN. Esto indica que, a pesar de la capacidad de la red neuronal para modelar relaciones no lineales más complejas, en este caso, el modelo K-NN resultó ser más preciso en la predicción de los ratings.
+Para la red neuronal, el MSE fue 1.7182 y el MAE fue 0.9009. Esto indica que la red neuronal logró un rendimiento superior al de K-NN en ambas métricas (MSE y MAE). A pesar de la capacidad de la red neuronal para modelar relaciones no lineales más complejas, en este caso, la red neuronal demostró ser más precisa que K-NN.
 
 ### Comparación Visual de Modelos
 
@@ -168,11 +170,66 @@ A continuación se presenta una comparación visual de ambos modelos, K-NN y la 
 
 ### Conclusión
 
-En resumen, ambos modelos de regresión, el **K-NN** y la **Red Neuronal**, demostraron ser efectivos para predecir los ratings de las recetas, pero el **K-NN** tuvo un rendimiento superior en este caso particular. A pesar de que las redes neuronales tienen la capacidad de aprender patrones no lineales más complejos, en este contexto, el modelo K-NN resultó ser más preciso.
+En resumen, ambos modelos de regresión, el K-NN y la Red Neuronal, demostraron ser efectivos para predecir los ratings de las recetas. Sin embargo, el K-NN presentó un rendimiento superior en este caso, con un MSE y MAE más bajos que la red neuronal. A pesar de que las redes neuronales tienen la capacidad de aprender relaciones no lineales más complejas, el modelo K-NN resultó ser más preciso en este contexto particular. Esto sugiere que, aunque las redes neuronales pueden ser útiles para patrones más complejos, el K-NN fue más adecuado para este conjunto de datos específico.
+
+Comparación entre KNN, NN y Fine-Tuning BERT
+1. Introducción
+En esta sección se presenta la comparación del desempeño de tres métodos distintos para la predicción de ratings:
+
+KNN (K-Nearest Neighbors)
+Red Neuronal Simple (NN)
+Fine-Tuning de BERT
+
+El objetivo es analizar el error obtenido por cada modelo utilizando métricas como el MSE (Error Cuadrático Medio) y el MAE (Error Absoluto Medio), así como visualizar la precisión de las predicciones a través de gráficos comparativos.
+
+2. Modelos Evaluados
+a) KNN
+Descripción: Método basado en la distancia entre puntos.
+Ventajas: Simplicidad y rapidez en datasets pequeños.
+Desventajas: Desempeño limitado en datos de alta dimensión y relaciones complejas.
+
+b) Red Neuronal Simple (NN)
+Descripción: Una red neuronal básica con una capa oculta para aprender relaciones no lineales.
+Ventajas: Capacidad intermedia de aprendizaje. Puede capturar patrones más complejos que KNN.
+Desventajas: Requiere entrenamiento y ajuste de parámetros.
+
+c) Fine-Tuning de BERT
+Descripción: Se realiza fine-tuning del modelo BERT, aprovechando sus embeddings preentrenados para ajustar el modelo al dominio específico de los datos.
+Ventajas: Aprende representaciones contextuales complejas, ofreciendo predicciones más precisas.
+Desventajas: Requiere más recursos computacionales y tiempo de ajuste.
+
+4. Métricas de Evaluación
+Se utilizan las siguientes métricas para comparar los resultados de cada modelo:
+
+MSE (Error Cuadrático Medio): Mide la diferencia promedio cuadrática entre las predicciones y los valores reales. Un menor MSE indica mejor desempeño.
+MAE (Error Absoluto Medio): Calcula el error absoluto promedio, ofreciendo una métrica más interpretativa y robusta frente a valores atípicos.
+
+5. Interpretación de los Resultados
+a) KNN
+MSE (1.7182) y MAE (0.9009):
+El modelo K-Nearest Neighbors (K-NN) obtuvo un MSE de 1.7182 y un MAE de 0.9009. Estos valores indican que el modelo tiene un rendimiento razonable, pero no perfecto. K-NN es adecuado para modelos con relaciones más simples y menos complejas, donde la proximidad entre puntos es relevante.
+
+b) Red Neuronal (NN)
+MSE (1.7182) y MAE (0.9009):
+La Red Neuronal (NN) obtuvo los mismos resultados que el modelo K-NN en cuanto a MSE y MAE. Esto sugiere que, en este caso específico, la red neuronal no fue capaz de superar el rendimiento de K-NN, a pesar de su capacidad para aprender relaciones no lineales más complejas. Los posibles motivos incluyen un sobreajuste o una configuración de hiperparámetros que no fue óptima.
+
+c) Fine-Tuning de BERT
+MSE (1.77581) y MAE (0.9216):
+El modelo de Fine-Tuning de BERT obtuvo un MSE de 1.77581 y un MAE de 0.9216. Aunque BERT puede capturar representaciones complejas a través de sus embeddings preentrenados, su rendimiento fue peor que el de los modelos K-NN y Red Neuronal en este caso específico. Esto sugiere que el ajuste fino de BERT no aportó mejoras significativas y que los modelos más simples fueron más adecuados para este conjunto de datos.
+
+Visualización Comparativa de los Modelos
+Para analizar visualmente el rendimiento de los modelos K-NN, Red Neuronal (NN) y Fine-Tuning BERT, se presenta un gráfico que compara las predicciones de cada modelo frente a los valores reales de calificación. En la gráfica, la línea diagonal representa una predicción perfecta, donde las predicciones coinciden exactamente con los valores verdaderos.
+
+![Comparación de Modelos: KNN vs NN vs Fine-Tuning BERT](Fine_tuning.png)
+
+La dispersión de los puntos alrededor de esta línea proporciona una idea de la precisión de cada modelo. Un menor desplazamiento respecto a la línea sugiere un mejor desempeño.
 
 
-5. **Ajuste de hiperparámetros**: 
-   - ULTIMO PUNTO
+
+
+Conclusión: El Fine-Tuning de BERT no proporcionó mejoras significativas en este caso específico, lo que sugiere que el problema puede no requerir un modelo tan complejo.
+
+
 
 
 ## Extensión: Uso de un Summarizer Preentrenado
